@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 const TextFieldGroup = ({ field, value, label, error, type, onChange}) => {
 	return (
-		<div className={classnames("form-group", {"has-error": error})}>
+		<div className={classnames("form-group", {"has-error": error})} style={{"color": "white"}}>
 			<label className="control-label">{label}</label>
 			<input
 				onChange={onChange}
@@ -12,7 +12,7 @@ const TextFieldGroup = ({ field, value, label, error, type, onChange}) => {
 				name={field}
 				className="form-control"
 			/>
-			{error && <span className="help-block">{error}</span>}
+			{error && <span className="help-block" style={{"color": "white"}}>{error}</span>}
 		</div>
 	);
 }

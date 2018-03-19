@@ -1,10 +1,21 @@
+.Main {
+	background-image: url(./assets/signup3.jpg);
+	background-size: cover;
+	min-height: 590px;
+}
+
 .jumbotron{
   margin-bottom: 0px;
-/*  background-image: url(./assets/bible.png);
-*/  background-position: 0% 25%;
+  background-image: url(./assets/home1.jpg);
+  background-position: 0% 25%;
   background-size: cover;
   background-repeat: no-repeat;
-  color: #0AD6EC;
+  color: honeydew;
   text-shadow: black 0.2em 0.2em 0.2em;
   min-height: 590px;
+}
+
+.navbar-default{
+	background-color:  lightgray;
+  text-shadow: black 0.1em 0.1em 0.1em;
 }

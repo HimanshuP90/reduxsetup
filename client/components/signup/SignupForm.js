@@ -37,7 +37,13 @@ class SignupForm extends React.Component {
 		e.preventDefault();
 		if (this.isValid()) {
 			this.props.userSignupRequest(this.state).then(
-				() => console.log("success"),
+				() => {
+					this.props.addFlashMessage({
+						type: 'success',
+						text: 'You have signup successfully. Welcome!'
+					});
+					this.context.router.push('/');
+				},
 				(err) => this.setState({ errors: err.response.data, isLoading: false })
 			);
 		}
@@ -47,7 +53,7 @@ class SignupForm extends React.Component {
 		const { errors } = this.state;
 		return(
 			<form onSubmit={this.onSubmit.bind(this)}>
-			 	<h1>Register to create account</h1>
+			 	<h1 style={{"color": "white"}}>AutographaMT Sign up</h1>
 			 	<br/>
 
 			 	<TextFieldGroup
@@ -96,7 +102,13 @@ class SignupForm extends React.Component {
 }
 
 SignupForm.propTypes = {
-	userSignupRequest: React.PropTypes.func.isRequired
+	userSignupRequest: React.PropTypes.func.isRequired,
+	addFlashMessage: React.PropTypes.func.isRequired
 }
+
+SignupForm.contextTypes = {
+	router: React.PropTypes.object.isRequired
+}
+
 
 export default SignupForm;
