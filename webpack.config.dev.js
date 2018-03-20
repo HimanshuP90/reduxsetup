@@ -41,5 +41,9 @@ export default {
   },
   resolve: {
     extentions: [ '', '.js' ]
+  },
+  node: {
+    net: 'empty',
+    dns: 'empty'
   }
 }

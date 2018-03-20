@@ -73,7 +73,7 @@ class SignupForm extends React.Component {
 	render(){
 		const { errors } = this.state;
 		return(
-			<form onSubmit={this.onSubmit.bind(this)} style={{paddingRight:"86px"}}>
+			<form onSubmit={this.onSubmit.bind(this)}>
 			 	<h1>Sign up</h1>
 			 	<br/>
 
