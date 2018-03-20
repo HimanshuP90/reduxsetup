@@ -17,6 +17,8 @@ const store = createStore(
 	)
 )
 
+console.log(store.getState());
+
 render(
 	<Provider store={store}>
 		<Router history={browserHistory} routes={routes} />

@@ -5,7 +5,7 @@ class Welcome extends React.Component {
     return (
       <div className="jumbotron">
       	<div className="container">
- 	       <h2 style={{fontSize: "50px"}}><strong>AutographaMT</strong>:Machine Translation Engine</h2>
+ 	       <h2 style={{fontSize: "50px"}}><strong>AutographaMT</strong> : Machine Translation Engine</h2>
     	</div>
       </div>
     );
