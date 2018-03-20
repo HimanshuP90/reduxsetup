@@ -47,7 +47,6 @@ class LoginForm extends React.Component {
 
 	render(){
 		const { errors, identifier, password, isLoading } = this.state;
-		console.log(errors)
 		return(
 			<form onSubmit={this.onSubmit.bind(this)}>
 			 	<h1>Login</h1>
