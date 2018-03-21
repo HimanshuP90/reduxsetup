@@ -41,9 +41,11 @@
     "react-dom": "^15.1.0",
     "react-redux": "^4.4.5",
     "react-router": "^2.5.0",
+    "react-typed": "^1.0.8",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "shortid": "^2.2.6",
+    "typed.js": "^2.0.6",
     "validator": "^5.4.0"
   }
 }
