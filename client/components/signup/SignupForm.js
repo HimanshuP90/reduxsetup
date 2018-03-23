@@ -58,10 +58,10 @@ class SignupForm extends React.Component {
 		e.preventDefault();
 		if (this.isValid()) {
 			this.props.userSignupRequest(this.state).then(
-				() => {
+				(data) => {
 					this.props.addFlashMessage({
 						type: 'success',
-						text: 'You have signup successfully. Welcome!'
+						text: data.data["success"]
 					});
 					this.context.router.push('/');
 				},

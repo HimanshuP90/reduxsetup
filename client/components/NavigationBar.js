@@ -18,6 +18,7 @@ class NavigationBar extends React.Component{
         <li><Link to="/dash">Dashboard</Link></li>
         <li><Link to="/about">About</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/item">Item</Link></li>
         <li><a href="#" onClick={this.logout.bind(this)}>Logut</a></li>
       </ul>
     );

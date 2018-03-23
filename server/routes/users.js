@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
       User.forge({
         username, email, password_digest
       }, { hasTimestamps: true }).save()
-        .then(user => res.json({ success: true }))
+        .then(user => res.json({ success: `Hey ${username}, you have signup successfully. Welcome!` }))
         .catch(err => res.status(500).json({ error: err }));
 
     } else {

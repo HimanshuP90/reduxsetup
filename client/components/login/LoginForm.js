@@ -38,7 +38,7 @@ class LoginForm extends React.Component {
 		if (this.isValid()) {
 			this.props.login(this.state).then(
 				() => {
-					this.context.router.push('/dash')
+					this.context.router.push('/');
 				},
 				(err) => this.setState({ errors: err.response.data, isLoading: false })
 			);

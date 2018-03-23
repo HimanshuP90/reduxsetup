@@ -14,12 +14,11 @@ export default (state = [], action ={}) => {
 				}
 			];
 		case DELETE_FLASH_MESSAGE:
-			console.log(...state)
 			const index = findIndex(state, { id: action.id });
 			if (index >= 0){
 				return [
 					...state.slice(0, index),
-					...state.slice(index + 1)
+					...state.c(index + 1)
 				];
 			}
 			return state;
