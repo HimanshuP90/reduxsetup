@@ -1,13 +1,91 @@
 Understanding Redux
+
 There are a few core principles to Redux which we need to understand:
 
-There is 1 global state object that manages the state for your entire application. In this example, it will behave identically to our initial component's state. It is the single source of truth.
-The only way to modify the state is through emitting an action, which is an object that describes what should change. Action Creators are the functions that are dispatched to emit a change – all they do is return an action.
-When an action is dispatched, a Reducer is the function that actually changes the state appropriate to that action – or returns the existing state if the action is not applicable to that reducer.
-Reducers are "pure functions". They should not have any side-effects nor mutate the state – they must return a modified copy.
-Individual reducers are combined into a single rootReducer to create the discrete properties of the state.
+1) There is 1 global state object that manages the state for your entire application. In this example, it will behave identically to our initial component's state. It is the single source of truth.
+
+2) The only way to modify the state is through emitting an action, which is an object that describes what should change. Action Creators are the functions that are dispatched to emit a change – all they do is return an action.
+
+3) When an action is dispatched, a Reducer is the function that actually changes the state appropriate to that action – or returns the existing state if the action is not applicable to that reducer.
+
+4) Reducers are "pure functions". They should not have any side-effects nor mutate the state – they must return a modified copy.
+
+5) Individual reducers are combined into a single rootReducer to create the discrete properties of the state.
 The Store is the thing that brings it all together: it represents the state by using the rootReducer, any middleware (Thunk in our case), and allows you to actually dispatch actions.
+
 For using Redux in React, the <Provider /> component wraps the entire application and passes the store down to all children.
 
 
 https://codepen.io/stowball/post/a-dummy-s-guide-to-redux-and-thunk-in-react
+
+
+MongoDB:
+
+1) NoSQL Database
+2) mongoose communicate between server and mongodb
+
+
+-----------------
+Redux setup
+1) Wrap our app in provider(react-redux) components
+2) Setup global redux store
+
+
+--------------------
+Save user ind DB
+1) Create Database mytest
+2) npm install --save knex
+3) npm install -g knex
+4) knex init (i.e. create knexfile.js)
+5) npm install --save pg
+6) knex migration:make users (i.e. migrations folder with files)
+7) knex migrate:latest
+8) npm install --save bookself
+9) create file bookself
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++---------------------++++++++++++++++++++++++++++++++++++++
+
+map()
+Use it when: You want to translate/map all elements in an array to another set of values.
+
+array.map(function(elem, index, array) {
+      ...
+}, thisArg);
+
+----------------------
+
+filter()
+Use it when: You want to remove unwanted elements based on a condition.
+
+array.filter(function(elem, index, array) {
+      ...
+}, thisArg);
+
+----------------------
+
+ 
+reduce()
+Use it when: You want to find a cumulative or concatenated value based on elements across the array.
+
+array.reduce(function(prevVal, elem, index, array) {
+      ...
+}, initialValue);
+
+
+
+1: What are “actions” in Redux ?
+Ans: actions are events. Actions send data from the application to the store. The store gets information
+     only from actions. 
+
+2: What is the role of reducers in Redux ?
+Ans: Reducers are functions(pure) that take the current state of the application and an action and then
+     return new state
+
+3:  What is Store ?
+Ans: Store is the object that holds the application state and provides a new helper methods to access state.
+     Any action returns a new state via reducers 
+
+4: How is state changed in Redux ?
+Ans: The only way to change the state is to emit an action, an object describing what happened.
