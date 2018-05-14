@@ -18,7 +18,7 @@ export default (state = [], action ={}) => {
 			if (index >= 0){
 				return [
 					...state.slice(0, index),
-					...state.c(index + 1)
+					...state.slice(index + 1)
 				];
 			}
 			return state;
