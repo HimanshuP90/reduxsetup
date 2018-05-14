@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { itemsFetchData } from '../actions/items';
-import News from './News';
+import ProductGrid from './ProductGrid';
 
-class ItemList extends Component { 
+class Products extends Component {
     
     componentDidMount() {
-      this.props.fetchData('https://newsapi.org/v2/top-headlines?sources=cnbc&apiKey=72405ce7c4e743e9ad8b105b330c6fe2');
+      this.props.fetchData('https://www.zopnow.com/toys/discounts.json');
     }
 
     renderItems() {
-      console.log(this.props.items.articles);
       const { items } = this.props;
-      if (items.articles) {
-          return items.articles.map((item) => {
-              return <News key={item.url} item={item} />
-          });
-      }
-
+      console.log(items)
+      if (items.length != 0) {
+        return items.map((item, i) => {
+         if (item.name === "ProductGrid") {
+          return <ProductGrid key={i} item={item} />
+         }
+        })
+       }
     }
 
   render() {
@@ -31,9 +32,9 @@ class ItemList extends Component {
     }
 
     return (
-      <div className="row">
-        {this.renderItems()}
-      </div>
+    <div className="row back">
+      {this.renderItems()}
+    </div>
     );
   }
 }
@@ -52,4 +53,4 @@ const mapDispatchToProps = (dispatch) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);
