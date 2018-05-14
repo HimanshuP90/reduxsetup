@@ -8,6 +8,7 @@ import LoginPage from './components/login/LoginPage';
 import Dashboard from './components/Dashboard';
 import requireAuth from './utils/requireAuth';
 import ItemList from './components/ItemList';
+import Products from './components/Products';
 
 export default (
 	<Route path="/" component={App}>
@@ -15,6 +16,7 @@ export default (
 		<Route path="signup" component={SignupPage} />
 		<Route path="login" component={LoginPage} />
 		<Route path="item" component={ItemList} />
+		<Route path="product" component={Products} />
 		<Route path="dash" component={requireAuth(Dashboard)} />
 	</Route>
 )

@@ -1,0 +1,120 @@
+1) Initialization:
+ 	setup props and state
+
+2) Mounting:
+	componentWillMount (Immediately before inital rendering)
+	render ( return one of the following types: React elements, String and numbers, Portals, Booleans, null, )
+	componentDidMount (Immediately after inital rendering)
+
+3) Updation
+	props
+		componentWillReceiveProps (When component receives new props)
+		shouldComponentUpdate (Before rendering, after receiving new props or state)
+		componentWillupdate (Before rendering, after receiving new props or state)
+		render
+		componentDidUpdate (After component's updates are flushed to DOM)
+	state
+		shouldComponentUpdate( is shouldComponentUpdate return false then render() will not be invoked)
+		componentWillupdate
+		render
+		componentDidUpdate
+
+4) Unmounting
+		componentWillUnmount (Immediately before removing component from DOM)
+
+5) componentDidCatch(error, info)
+
+Currying: Currying is technique of translating the evaluation of a function that takes multiple arguments
+		 			 into evaluating a sequence of functions, each with a single argument.
+
+		 const multiply = (a, b) => a * b;
+
+		 multiply(2,3); //6
+
+		 If we were to create a curried version of this it would look like this:
+
+		 const multiply = a => b => a * b;
+
+		 multiply(2)(3); //6
+
+Partial function application: "if you fix the first arguments of the function, you get a function of the remaining arguments"
+
+ex. div = x / y;
+		= 1 /y;
+		= 1/ 3
+
+Portals: Portals provide a first-class way to render children into a DOM node that
+				 exists outside the DOM hierarchy of the parent component.
+
+				 ReactDOM.render(child, container)
+
+Normally, when you return an element from a component's render method, it's mounted into the DOM as a child
+of the DOM as child of the nearest parent node.
+
+render() {
+	return(
+		<div>
+			{this.props.children}
+		</div>
+	);
+}
+
+
+render() {
+	return(
+		ReactDOM.createPortal(
+			this.props.children,
+			domNode
+		)
+	);
+}
+
+
+Fragments: You can also return multiple items from render() using an array;
+
+constructor(props): The constructor for a React component is called before it is mounted.
+
+getDerivedStateFromProps(): is invoked after a component is instantiated as well as when it receives new props
+
+static getDerivedStateFromProps(nextProps, prevState)
+
+
+setState(updater[, callback]) i.e. setState() enqueues changes to the component state and tells React that
+																		this component and it's children need to be re-rendered with the updated
+																		state.This is the primary method you use to update the user interface in 
+																		response to event handlers and server responses.
+
+(prevState, props) => stateChange
+
+this.setState((prevState, props) => {
+	return { counter: prevState.counter + props.step};
+});
+
+
+forceUpdate(): By default, when your component’s state or props change, your component will re-render. If
+							 your render() method depends on some other data, you can tell React that the component needs
+							 re-rendering by calling forceUpdate().
+
+component.forceUpdate(callback);
+
+
+____________________________
+
+1) Class Properties:
+	defaultProps: defaultProps can be defined as a property on the component class itself, to set the default props
+								for the class.
+
+2) Instance Properties:
+	  a) props
+	  b)  state
+
+3) Error Boundary: Error boundaries are React components that catch JavaScript errors anywhere in their child
+									 component tree, log those errors, and display a fallback UI instead of the component tree
+									 that crashed.
+
+4) Higher-Order Components: HOC is a function that takes a component and returns a new component.
+
+
+Notes:(forceUpdate vs setState)
+It's important to note that forceUpdate() will skip checking the logic 
+in shouldComponentUpdate() (if you have any), where as setState() does not skip it.
